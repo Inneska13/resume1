@@ -1,0 +1,66 @@
+<div>
+    {{#with web}}
+    <div>
+        <h2>Program languages</h2>
+        <br>
+    </div>
+    <section>
+        <div>
+            {{#each languages}}
+            <strong>{{name}}</strong> ({{version}})
+            <p>{{description}}</p>
+
+            <div>
+                <ul>
+                    {{#each elements}}
+                    <li> <b>{{name}}</b>
+                        <p>{{description}}</p>
+                    </li>
+
+                    {{#each attributes}}
+                    <li><b>{{name}}</b>
+                        <p>{{description}}</p>
+                    </li>
+                    {{/each}}
+
+                    {{/each}}
+
+
+                    {{#each properties}}
+                    <b><em>{{name}}</em></b>
+                    <p>{{description}}</p>
+
+                    {{#each values}}
+                    <b><em>{{name}}</em></b>
+                    <p>{{description}}</p>
+
+                    {{/each}}
+                    {{/each}}
+
+                    {{#each functions}}
+                    <b>{{name}}</b>
+                    <p>{{description}}</p>
+
+                    {{#each parameters}}
+                    <b> <em>{{name}} {{type}}</em></b>
+
+                    <p>{{description}}</p>
+
+                    {{/each}}
+                    {{/each}}
+                </ul>
+            </div>
+
+            {{/each}}
+        </div>
+        <br>
+
+
+
+
+
+
+
+    </section>
+    {{/with}}
+</div>
