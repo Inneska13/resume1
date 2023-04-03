@@ -1,0 +1,42 @@
+<div>
+    <span class="badge rounded-pill text-bg-primary">{{name}}</span>
+    {{#each users}}
+    <section>
+        <ul>
+            <div>
+                <li>{{id}} {{name}} '{{gender}}' ({{age}})</li>
+            </div>
+
+            {{#each friends}}
+            <p class="text-success">Friends:</p>
+            <li>{{id}} {{name}} '{{gender}}' ({{age}})</li>
+
+            {{#each mutual_friends}}
+            <p class="text-warning-emphasis">Mutual friends:</p>
+            <li>{{id}} {{name}} '{{gender}}' ({{age}})</li>
+            {{#each mutual_friends}}
+            <li>{{id}} {{name}} '{{gender}}' ({{age}})</li>
+            {{/each}}
+            {{/each}}
+
+            {{#each groups}}
+            <p class="text-primary">Groups:</p>
+            <li>{{id}} {{name}}</li>
+            <p>{{description}}</p>
+
+            {{#each members}}
+            <p class="text-secondary">Members:</p>
+            <li>{{id}} {{name}} '{{gender}}' ({{age}})</li>
+
+            {{#each members}}
+            <li>{{id}} {{name}} '{{gender}}' ({{age}})</li>
+            {{/each}}
+            {{/each}}
+
+            {{/each}}
+
+            {{/each}}
+        </ul>
+    </section>
+    {{/each}}
+</div>
