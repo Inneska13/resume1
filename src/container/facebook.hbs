@@ -4,33 +4,34 @@
     <section>
         <ul>
             <div>
-                <li>{{id}} {{name}} '{{gender}}' ({{age}})</li>
+                <b>{{id}} {{name}} '{{gender}}' ({{age}})</b>
             </div>
-
+            <br>
             {{#each friends}}
-            <p class="text-success">Friends:</p>
-            <li>{{id}} {{name}} '{{gender}}' ({{age}})</li>
+            <p class="text-success"> <strong>Friends:</strong>
 
-            {{#each mutual_friends}}
-            <p class="text-warning-emphasis">Mutual friends:</p>
+            </p>
             <li>{{id}} {{name}} '{{gender}}' ({{age}})</li>
+            <br>
             {{#each mutual_friends}}
-            <li>{{id}} {{name}} '{{gender}}' ({{age}})</li>
+            <ul>
+                <p class="text-warning-emphasis">Mutual friends:</p>
+                <li>{{id}} {{name}} '{{gender}}' ({{age}})</li>
+            </ul>
             {{/each}}
-            {{/each}}
-
+            <br>
             {{#each groups}}
             <p class="text-primary">Groups:</p>
             <li>{{id}} {{name}}</li>
             <p>{{description}}</p>
-
+            <br>
             {{#each members}}
-            <p class="text-secondary">Members:</p>
-            <li>{{id}} {{name}} '{{gender}}' ({{age}})</li>
+            <ol>
+                <p class="text-secondary">Members:</p>
+                <li>{{id}} {{name}} '{{gender}}' ({{age}})</li>
+            </ol>
+            <br>
 
-            {{#each members}}
-            <li>{{id}} {{name}} '{{gender}}' ({{age}})</li>
-            {{/each}}
             {{/each}}
 
             {{/each}}
