@@ -1,0 +1,36 @@
+<main class="py-5">
+    <section class="col-12 mx-7 pb-6">
+        {{>breadcrumb}}
+        <br>
+        {{#with newsData}}
+        <div class="col-12 pb-5">
+            <img src="{{photo}}" class="card-img-top pb-4" alt="img">
+            {{#with head}}
+            <div class="pb-4">
+                <h1>{{heading}}</h1>
+                <p>{{description}}</p>
+            </div>
+            {{/with}}
+            {{#each body}}
+            <div class="pb-4">
+                <h3 class="card-title">{{title}}</h3>
+                <p class="card-text">{{text}}</p>
+            </div>
+            {{/each}}
+            {{/with}}
+
+            <hr>
+
+            {{#with newsOtherBlock}} <h2 class="py-5 text-center">{{title}}</h2>
+            {{>shoppost}}
+            {{/with}}
+            <br>
+            <hr>
+            <br>
+            {{>shopaction}}
+
+            <br>
+            <hr>
+            <br>
+    </section>
+</main>
