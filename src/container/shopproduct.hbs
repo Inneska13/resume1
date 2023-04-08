@@ -1,0 +1,155 @@
+<main class="py-5">
+    <section class="col-12 mx-7 pb-6">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                {{#each breadcrumb}}
+                <li class="breadcrumb-item ">
+                    <a class="breadcrumb-item {{#if @last}}active{{/if}}" href="{{#if url}}{{url}}{{/if}}">{{name}}</a>
+                </li>
+                {{/each}}
+            </ol>
+        </nav>
+        <br>
+        <section class="py-5 ">
+
+            {{#with productData}}
+            <div class="row d-flex justify-content-between">
+                <div class="col-6 ">
+                    <img src="{{img}}" class="card-img-top" alt="img">
+
+                    {{#with info}}
+                    <div class="card my-4 p-3">
+
+                        <h5 class="card-title">{{title}}</h5>
+                        <p class="card-text">{{about}}</p>
+                        <b>
+                            <h4>{{price}}</h4>
+                        </b>
+                        <div>
+                            {{#each category}}
+                            {{#if isHot}}<span class="badge text-bg-warning rounded-pill text-uppercase ms-2">
+                                {{name}}</span>{{/if}}
+                            {{#if isNew}}<span class="badge text-bg-primary rounded-pill text-uppercase ms-2">
+                                {{name}}</span>{{/if}}
+                            {{#if isBonus}}<span class="badge text-bg-info rounded-pill text-uppercase ms-2">
+                                {{name}}</span>{{/if}}
+                            {{/each}}
+                        </div>
+                    </div>
+                    {{/with}}
+                </div>
+
+                <div class="col-5">
+                    {{#with item}}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                {{#each head}}
+                                <th scope="col">{{this}}</th>
+                                {{/each}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each body}}
+                            <tr>
+                                {{#each this}}
+                                {{#if @first}}
+                                <th scope="row">{{this}}</th>
+                                {{else}}
+                                <td>{{this}}</td>
+                                {{/if}}
+                                {{/each}}
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                    {{/with}}
+
+                    {{#with param}}
+                    <div class="card my-4">
+                        <div class="card-header">
+                            {{title}}
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            {{#each list}}
+                            <li class="list-group-item">{{this}}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    {{/with}}
+
+                    {{#with alert}}
+                    {{#if isError}}
+                    <div class="alert alert-danger" role="alert">
+                        {{text}}
+                    </div>
+                    {{/if}}
+                    {{/with}}
+                </div>
+
+            </div>
+
+            <div class="row ">
+                <div class="col-12">
+                    <div class="card p-2 d-flex flex-row justify-content-start">
+                        {{#each actionList}}
+                        <div class="m-1">
+                            {{#if isWarning}}<button class="btn btn-warning">{{name}}</button>
+                            {{/if}}
+                        </div>
+                        <div class="m-1">
+                            {{#if isError}}<button class="btn btn-outline-danger">{{name}}</button>
+                            {{/if}}
+                        </div>
+                        <div class="m-1">
+                            {{#if isSuccess}}<button class="btn btn-success">{{name}}</button>
+                            {{/if}}
+                        </div>
+                        <div class="m-1">
+                            {{#if isGood}}<button class="btn btn-outline-success">{{name}}</button>
+                            {{/if}}
+                        </div>
+
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+
+            </div>
+            {{/with}}
+            <br>
+            <br>
+            <br>
+            <hr>
+            <br>
+            <br>
+
+            {{#each cards}}
+            <div class="col-3">
+                <div class="card text-bg-dark">
+                    <div class="card-header">{{title}}
+                        {{#if isTop}}<span class="badge text-bg-danger rounded-pill text-uppercase ms-2">
+                            Top</span>{{/if}}
+                        {{#if isNew}}<span class="badge text-bg-success rounded-pill text-uppercase ms-2">
+                            New</span>{{/if}}
+                    </div>
+                    <div class="card-body">
+                        <p>{{description}}</p>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            {{#with goodsOtherBlock}}
+            <h2 class="text-center py-5">{{title}}</h2>
+            {{>shopcard}}
+            {{/with}}
+            <br>
+            <hr>
+            <br>
+            {{>shopaction}}
+
+            <br>
+            <hr>
+            <br>
+        </section>
+</main>
