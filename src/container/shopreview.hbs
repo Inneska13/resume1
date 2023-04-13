@@ -1,0 +1,117 @@
+<main class="py-5">
+    <div class="row d-flex justify-content-between">
+        {{#with formBlock}}
+        <div class="col-8">
+            <h1 class="mb-3">{{header}}</h1>
+            {{#with rating}}
+            <p class="mt-2 mb-4">{{title}}: {{value}}</p>
+            {{/with}}
+
+            {{#with actionBlock}}
+            <ul class="nav nav-tabs mb-4 col-12">
+                {{#each tabs}}
+                {{#if isActive}}
+                <li class="nav-item col-4">
+                    <a class="nav-link active" aria-current="page" href="#">{{this.text}}</a>
+                </li>
+                {{else}}
+                <li class="nav-item col-4">
+                    <a class="nav-link" href="#">{{this.text}}</a>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+            <div class="mt-5 mb-5">
+                <hr>
+            </div>
+            <div class="col-12">
+                <div class="card">
+                    {{#with report}}
+                    <div class="row ,mt-2 mb-2">
+                        <div class="card-body ms-3">
+                            <p class="">{{title}}</p>
+                            {{#with button}}
+                            <button class="btn btn-secondary" href="{{link}}">{{text}}</button>
+                            {{/with}}
+                        </div>
+                    </div>
+                    {{/with}}
+                </div>
+            </div>
+            {{/with}}
+
+            <div class="mt-5 mb-5">
+                <hr>
+            </div>
+            {{#with feedbackBlock}}
+            <h1 class="mb-6 pb-3">{{title}}</h1>
+            {{#each buttons}}
+            {{#if isWarning}} <button class="btn btn-warning me-4" href="{{link}}">{{text}}</button>{{/if}}
+            {{#if isSuccess}} <button class="btn btn-success me-4" href="{{link}}">{{text}}</button>{{/if}}
+            {{#if isDanger}} <button class="btn btn-danger me-2" href="{{link}}">{{text}}</button>{{/if}}
+            {{/each}}
+            {{/with}}
+        </div>
+
+        <div class="col-4">
+            {{#with goodsInfo}}
+            <div class="card my-3">
+                <div class="row">
+                    <div class="card-body">
+                        <div class="p-2"><img src="{{photo}}"></div>
+                        <h6 class="p-2 ps-2">{{name}}</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="card my-3">
+                <div class="row">
+                    <div class="card-body">
+                        <div class="ps-3">
+                            <h5>{{price}}</h5>
+                            {{#if inMarket}}<p>Є в наявності</p>{{/if}}
+                            {{#each buttons}}
+                            <div>
+                                {{#if isPrimary}} <button class="btn btn-primary mb-3 mt-1"
+                                    href="{{link}}">{{text}}</button>{{/if}}
+                            </div>
+                            <div>
+                                {{#if isSecondary}} <button class="btn btn-secondary"
+                                    href="{{link}}">{{text}}</button>{{/if}}
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card my-2">
+                <div class="row">
+                    <div class="card-body">
+                        {{#with seller}}
+                        <div class="p-2">{{title}}: <b>{{value}}</b></div>
+
+                        {{/with}}
+                    </div>
+                </div>
+            </div>
+            {{/with}}
+        </div>
+        {{/with}}
+    </div>
+
+    <div class="mt-5 mb-5">
+        <hr>
+    </div>
+
+    <div class="row col-12">
+        {{#each reviewList}}
+        {{> reviewItem}}
+        {{/each}}
+    </div>
+
+    <div>
+        <br>
+    </div>
+
+    {{> shopaction}}
+</main>
