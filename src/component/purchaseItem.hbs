@@ -1,0 +1,28 @@
+<table class="table">
+    <tbody>
+        <tr>
+            <th scope="row">
+                <div>
+                    {{this.number}}
+                </div>
+                <div><b>{{this.status}}</b></div>
+            </th>
+            {{#with amount}}
+            <td>
+                <div>{{title}}</div>
+                <div><strong>{{value}}</strong></div>
+            </td>
+            {{/with}}
+            {{#each images}}
+            <td>
+                <div class="card-body">
+                    <img src="{{this}}">
+                </div>
+            </td>
+            {{/each}}
+            {{#with button}}
+            <td>{{#if isPrimary}} <button class="btn btn-primary me-2" href="{{link}}">{{text}}</button>{{/if}}</td>
+            {{/with}}
+        </tr>
+    </tbody>
+</table>
