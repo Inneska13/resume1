@@ -1,0 +1,113 @@
+<main class="py-5">
+    <div class="mb-4">
+        {{> breadcrumb}}
+    </div>
+
+    <h1 class="m-3">{{header}}</h1>
+    <div class="row mb-4">
+        {{#each sortBlock}}
+        <div class="col-3 me-3">
+            <label class="form-label"></label>
+            <select class="form-select ">
+                <option selected>{{placeholder}}</option>
+                {{#each options}}
+                {{#with this}}
+                <option value="{{value}}">{{text}}</option>
+                {{/with}}
+                {{/each}}
+            </select>
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="row d-flex justify-content-between mt-5 mb-5">
+        <div class="col-4">
+            <div class="card">
+                {{#with filterBlock}}
+                <div class="card-body">
+                    {{#with sellers}}
+                    <div class="form-label">{{title}}</div>
+                    {{#each list}}
+                    {{#with this}}
+                    <div class="form-check">
+                        <label class="form-check-label">{{value}}</label>
+                        <input name="food" type="checkbox" class="form-check-input">
+                    </div>
+                    {{/with}}
+                    {{/each}}
+                    {{/with}}
+                    <div>
+                        <hr>
+                    </div>
+                    {{#with brands}}
+                    <div class=" pt-1">
+                        <label class="form-label">{{title}}</label>
+                    </div>
+                    {{#with input}}
+                    <div>
+                        <input class="form-control" placeholder="{{placeholder}}">
+                    </div>
+                    {{/with}}
+                    {{#each options}}
+                    {{#with this}}
+                    <div class="form-check mt-2 mb-2">
+                        <input name="food" type="checkbox" class="form-check-input">
+                        <option value="{{value}}">{{value}}</option>
+                    </div>
+                    {{/with}}
+                    {{/each}}
+                    {{/with}}
+                    <div class="mt-2 mb-2">
+                        <hr>
+                    </div>
+                    {{#with price}}
+                    <div class=" pt-1">
+                        <label class="form-label">{{title}}</label>
+                    </div>
+                    {{#with range}}
+                    <div class="mt-2 mb-3">
+                        <input class="form-control" placeholder="{{from}}">
+                    </div>
+                    <div class="mb-3"><input class="form-control" placeholder="{{to}}"></div>
+                    {{/with}}
+                    {{#with button}}
+                    <div><button class="ms-2 btn btn-outline-secondary" href="{{link}}">{{text}}</button></div>
+                    {{/with}}
+                    {{/with}}
+
+                    <div class="mt-3 mb-3">
+                        <hr>
+                    </div>
+
+                    {{#each filterList}}
+                    <div class=" pt-1">
+                        <label class="form-label">{{title}}</label>
+                    </div>
+                    {{#each options}}
+                    {{#with this}}
+                    <div class="form-check mt-2 mb-2">
+                        <input name="food" type="checkbox" class="form-check-input">
+                        <option value="{{value}}">{{value}}</option>
+                    </div>
+                    {{/with}}
+                    {{/each}}
+                    <div class="mt-2 mb-2">
+                        <hr>
+                    </div>
+                    {{/each}}
+                </div>
+                {{/with}}
+            </div>
+        </div>
+
+        <div class="col-8">
+            <div class="row gy-1">
+                {{> catalogItem}}
+            </div>
+        </div>
+    </div>
+    {{> shopaction}}
+    <div class="mt-4">
+        <hr>
+    </div>
+</main>
