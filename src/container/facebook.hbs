@@ -1,43 +1,45 @@
-<div>
-    <span class="badge rounded-pill text-bg-primary">{{name}}</span>
-    {{#each users}}
-    <section>
-        <ul>
-            <div>
-                <b>{{id}} {{name}} '{{gender}}' ({{age}})</b>
-            </div>
-            <br>
-            {{#each friends}}
-            <p class="text-success"> <strong>Friends:</strong>
-
-            </p>
-            <li>{{id}} {{name}} '{{gender}}' ({{age}})</li>
-            <br>
-            {{#each mutual_friends}}
+<main class="p-5">
+    <div>
+        <span class="badge rounded-pill text-bg-primary">{{name}}</span>
+        {{#each users}}
+        <section>
             <ul>
-                <p class="text-warning-emphasis">Mutual friends:</p>
+                <div>
+                    <b>{{id}} {{name}} '{{gender}}' ({{age}})</b>
+                </div>
+                <br>
+                {{#each friends}}
+                <p class="text-success"> <strong>Friends:</strong>
+
+                </p>
                 <li>{{id}} {{name}} '{{gender}}' ({{age}})</li>
+                <br>
+                {{#each mutual_friends}}
+                <ul>
+                    <p class="text-warning-emphasis">Mutual friends:</p>
+                    <li>{{id}} {{name}} '{{gender}}' ({{age}})</li>
+                </ul>
+                {{/each}}
+                <br>
+                {{#each groups}}
+                <p class="text-primary">Groups:</p>
+                <li>{{id}} {{name}}</li>
+                <p>{{description}}</p>
+                <br>
+                {{#each members}}
+                <ol>
+                    <p class="text-secondary">Members:</p>
+                    <li>{{id}} {{name}} '{{gender}}' ({{age}})</li>
+                </ol>
+                <br>
+
+                {{/each}}
+
+                {{/each}}
+
+                {{/each}}
             </ul>
-            {{/each}}
-            <br>
-            {{#each groups}}
-            <p class="text-primary">Groups:</p>
-            <li>{{id}} {{name}}</li>
-            <p>{{description}}</p>
-            <br>
-            {{#each members}}
-            <ol>
-                <p class="text-secondary">Members:</p>
-                <li>{{id}} {{name}} '{{gender}}' ({{age}})</li>
-            </ol>
-            <br>
-
-            {{/each}}
-
-            {{/each}}
-
-            {{/each}}
-        </ul>
-    </section>
-    {{/each}}
-</div>
+        </section>
+        {{/each}}
+    </div>
+</main>

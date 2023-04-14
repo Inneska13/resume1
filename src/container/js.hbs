@@ -1,47 +1,49 @@
-<div>
-    <h1>{{name}}</h1>
+<main class="p-5">
     <div>
-        <b>
-            <p>{{description}}</p>
-        </b>
+        <h1>{{name}}</h1>
+        <div>
+            <b>
+                <p>{{description}}</p>
+            </b>
+
+        </div>
+        <br>
+        <div>
+            {{#with history}}
+            <em>{{founder}} in {{year}}</em>
+            {{/with}}
+        </div>
+        <br>
+        <ul>
+            <li>
+                <div>{{types}}</div>
+            </li>
+        </ul>
+        <div>
+            <span class="badge rounded-pill text-bg-primary">{{syntax.variables}}</span>
+            <span class="badge rounded-pill text-bg-primary">{{syntax.functions}}</span>
+            <span class="badge rounded-pill text-bg-primary">{{syntax.conditionals}}</span>
+            <span class="badge rounded-pill text-bg-primary">{{syntax.loops}}</span>
+            <span class="badge rounded-pill text-bg-primary">{{syntax.classes}}</span>
+        </div>
+        <br>
+        <div>
+            <span class="badge rounded-pill text-bg-warning">{{features}}</span>
+        </div>
+        <br>
+        <div>
+            <span class="badge rounded-pill text-bg-success">{{libraries}}</span>
+        </div>
+        <br>
+        <div>
+            <span class="badge rounded-pill text-bg-info">{{tools}}</span>
+        </div>
+        <br>
+        <div>
+            {{#each community}}
+            <button type="button" class="btn btn-link"><b>{{name}}</b> {{type}}</button>
+            {{/each}}
+        </div>
 
     </div>
-    <br>
-    <div>
-        {{#with history}}
-        <em>{{founder}} in {{year}}</em>
-        {{/with}}
-    </div>
-    <br>
-    <ul>
-        <li>
-            <div>{{types}}</div>
-        </li>
-    </ul>
-    <div>
-        <span class="badge rounded-pill text-bg-primary">{{syntax.variables}}</span>
-        <span class="badge rounded-pill text-bg-primary">{{syntax.functions}}</span>
-        <span class="badge rounded-pill text-bg-primary">{{syntax.conditionals}}</span>
-        <span class="badge rounded-pill text-bg-primary">{{syntax.loops}}</span>
-        <span class="badge rounded-pill text-bg-primary">{{syntax.classes}}</span>
-    </div>
-    <br>
-    <div>
-        <span class="badge rounded-pill text-bg-warning">{{features}}</span>
-    </div>
-    <br>
-    <div>
-        <span class="badge rounded-pill text-bg-success">{{libraries}}</span>
-    </div>
-    <br>
-    <div>
-        <span class="badge rounded-pill text-bg-info">{{tools}}</span>
-    </div>
-    <br>
-    <div>
-        {{#each community}}
-        <button type="button" class="btn btn-link"><b>{{name}}</b> {{type}}</button>
-        {{/each}}
-    </div>
-
-</div>
+</main>
