@@ -1,97 +1,99 @@
-<div>
-    {{#with person}}
+<main class="p-5">
     <div>
-        <h1>{{name}}</h1>
-    </div>
-    <div>
-        <b>{{gender}} {{age}}</b>
-    </div>
-    <br>
-    <div>
-        <address>"{{address.street}} {{address.city}} "</address>
-        <address>({{address.state}} {{address.zip}} {{address.country}})</address>
-    </div>
-    <br>
-    <hr>
-    <div>
-        {{> title big=true data="Education"}}
-        <ul>
-            {{#each education}}
-            <li> {{degree}} - {{major}} - {{university}}
-                ({{graduationYear}})</li>
-            {{/each}}
-        </ul>
-    </div>
+        {{#with person}}
+        <div>
+            <h1>{{name}}</h1>
+        </div>
+        <div>
+            <b>{{gender}} {{age}}</b>
+        </div>
+        <br>
+        <div>
+            <address>"{{address.street}} {{address.city}} "</address>
+            <address>({{address.state}} {{address.zip}} {{address.country}})</address>
+        </div>
+        <br>
+        <hr>
+        <div>
+            {{> title big=true data="Education"}}
+            <ul>
+                {{#each education}}
+                <li> {{degree}} - {{major}} - {{university}}
+                    ({{graduationYear}})</li>
+                {{/each}}
+            </ul>
+        </div>
 
-    <div>
-        <ul>
-            {{> title big=true data="Work Experience:"}}
-            <li>
-                {{#each workExperience}}
-                {{title}}
-                {{company}}
-                ({{startDate}} - {{endDate}})
-            </li>
-            <li>
+        <div>
+            <ul>
+                {{> title big=true data="Work Experience:"}}
+                <li>
+                    {{#each workExperience}}
+                    {{title}}
+                    {{company}}
+                    ({{startDate}} - {{endDate}})
+                </li>
+                <li>
+                    <div>
+                        <p>{{responsibilities}}</p>
+                    </div>
+
+                    ({{industry}} {{year_founded}} )
+                </li>
+
                 <div>
-                    <p>{{responsibilities}}</p>
-                </div>
+                    <em>
+                        {{> title big=false data="Employees of company:"}}
+                    </em>
+                    {{#each employees}}
+                    <li> {{name}} {{position}} {{department}}</li>
+                    {{#each projects}}
+                    {{name}} {{description}} ({{status}})
 
-                ({{industry}} {{year_founded}} )
-            </li>
-
-            <div>
-                <em>
-                    {{> title big=false data="Employees of company:"}}
-                </em>
-                {{#each employees}}
-                <li> {{name}} {{position}} {{department}}</li>
-                {{#each projects}}
-                {{name}} {{description}} ({{status}})
-
-                {{#each teams}}
-                <h4>Teams: "{{team_name}}"</h4>
-                <ul>
-                    {{#with team_leader}}
-                    <b>{{title}}</b> {{name}} /{{email}}/
-                    {{/with}}
-                    <br>
-                    <br>
-
+                    {{#each teams}}
+                    <h4>Teams: "{{team_name}}"</h4>
                     <ul>
-                        {{#each team_members }}
-                        <div><b>Team members:</b> {{team_members}}</div>
-                        <li>{{name}} {{title}} /{{email}}/</li>
-                        Skills: {{skills}}
+                        {{#with team_leader}}
+                        <b>{{title}}</b> {{name}} /{{email}}/
+                        {{/with}}
                         <br>
                         <br>
-                        {{#each projects}}
-                        <b>Projects:</b>
-                        <li>{{name}} "{{description}}" technologies: ({{technologies}})</li>
 
-                        <em>Team members:</em>
-                        {{#each team_members}}
                         <ul>
-                            <li>{{name}} "{{title}}"</li>
+                            {{#each team_members }}
+                            <div><b>Team members:</b> {{team_members}}</div>
+                            <li>{{name}} {{title}} /{{email}}/</li>
+                            Skills: {{skills}}
+                            <br>
+                            <br>
+                            {{#each projects}}
+                            <b>Projects:</b>
+                            <li>{{name}} "{{description}}" technologies: ({{technologies}})</li>
+
+                            <em>Team members:</em>
+                            {{#each team_members}}
+                            <ul>
+                                <li>{{name}} "{{title}}"</li>
+                            </ul>
+                            {{/each}}
+                            {{/each}}
+
+                            {{/each}}
                         </ul>
-                        {{/each}}
-                        {{/each}}
 
-                        {{/each}}
+
+
                     </ul>
+                    {{/each}}
 
 
-
-                </ul>
+                    {{/each}}
+                    {{/each}}
+                </div>
                 {{/each}}
+            </ul>
+        </div>
 
-
-                {{/each}}
-                {{/each}}
-            </div>
-            {{/each}}
-        </ul>
+        {{/with}}
     </div>
-
-    {{/with}}
-</div>
+</main>
